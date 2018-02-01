@@ -1,3 +1,3 @@
 # scoala-informala-homeworks
 Andrei Ghircoias
-ghircoias.andi@gmail.com
+e-mail: ghircoias.andi@gmail.com
