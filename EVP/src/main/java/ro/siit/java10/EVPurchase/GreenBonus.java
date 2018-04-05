@@ -14,4 +14,8 @@ public class GreenBonus {
     public void setBudget(int budget) {
         this.budget = budget;
     }
+
+    public GreenBonus(int budget) {
+        this.budget = budget;
+    }
 }

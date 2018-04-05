@@ -156,7 +156,7 @@ public class Car {
     @Override
     public int hashCode() {
 
-        return Objects.hash(motorKW, batteryKW, consumpion, manufacturer, model, year, price, stock, type, fastCharging, rangePerChargeKM, horsePower);
+        return Objects.hash(motorKW,  batteryKW, consumpion, manufacturer, model, year, price, stock, type, fastCharging, rangePerChargeKM, horsePower);
     }
 }
 
