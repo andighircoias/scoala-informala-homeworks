@@ -1,9 +1,11 @@
 package ro.siit.java10.EVPurchase;
 
+import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Objects;
 
 
-public class Car {
+public class Car implements Serializable, Comparable<Car>{
 
     private int motorKW;
     private int batteryKW;
@@ -17,6 +19,7 @@ public class Car {
     private String fastCharging;
     private int rangePerChargeKM;
     private int horsePower;
+
 
     public Car(String manufacturer, String model, int year, int price, int horsePower, int motorKW, int batteryKW, int consumpion, String type, String fastCharging, int rangeKM, int stock) {
         this.manufacturer = manufacturer;
@@ -126,7 +129,35 @@ public class Car {
     public int getHorsePower() {
         return horsePower;
     }
+    public static final Comparator<Car> COMPARE_BY_PRICE = new Comparator<Car>() {
+        @Override
+        public int compare(Car o1, Car o2) {
+            //return Integer.compare(o1.price, o2.price);
+            if (o1.price==o2.price){
+                return 0;
+            }else if(o1.price<o2.price){
+                return -1;
+            }else {
+                return 1;
+            }
+        }
+    };
+    public static final Comparator<Car> COMPARE_BY_RANGE_PER_HOUR = new Comparator<Car>() {
+        @Override
+        public int compare(Car o1, Car o2) {
+            return Integer.compare(o1.rangePerChargeKM, o2.rangePerChargeKM);
+        }
+    };
 
+    public static final Comparator<Car> COMPARE_BY_HORSE_POWER = new Comparator<Car>() {
+        @Override
+        public int compare(Car o1, Car o2) {
+            return Integer.compare(o1.horsePower, o2.horsePower);
+        }
+    };
+    public String CSVFormat (){
+        return manufacturer + ", " + model + ", " + year + ", " + price + ", " + horsePower + ", " + motorKW + ", " + batteryKW + ", " + consumpion + ", " + type + ", " + fastCharging + ", " + rangePerChargeKM + ", " + stock;
+    }
 
     public String toString() {
         return String.format("Manufacturer: %s Model: %s\tYear: %d\tPrice: %d\tHP: %d\tMotor: %d\tBattery: %d\tConsumption: %d" +
@@ -158,5 +189,11 @@ public class Car {
 
         return Objects.hash(motorKW, batteryKW, consumpion, manufacturer, model, year, price, stock, type, fastCharging, rangePerChargeKM, horsePower);
     }
+
+    @Override
+    public int compareTo(Car o) {
+        return 0;
+    }
+
 }
 

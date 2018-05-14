@@ -1,10 +1,14 @@
 package main;
 
+import ro.siit.java10.EVPurchase.CSVWriter;
 import ro.siit.java10.EVPurchase.Car;
 import ro.siit.java10.EVPurchase.Dealership;
 
-public class Demo {
-    public static void main(String[] args) throws Exception {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
         Dealership dealership = new Dealership("CarSrl");
         Car c1 = new Car("Volkswagen", "e-UP", 2018, 25000, 82, 20,
                 40, 17, "New", "No", 320, 3);
@@ -24,6 +28,7 @@ public class Demo {
                 40, 17, "New", "Yes", 400, 10);
         Car c9 = new Car("Hyundai", "Ioniq", 2018, 40000, 83, 20,
                 45, 19, "New", "No", 370, 0);
+        //Adding cars to list
         dealership.addCar(c1);
         dealership.addCar(c2);
         dealership.addCar(c3);
@@ -33,14 +38,31 @@ public class Demo {
         dealership.addCar(c7);
         dealership.addCar(c8);
         dealership.addCar(c9);
-        //FEV2 Customer can filter the list based on the following information: has fast-charging, is in stock.
-        dealership.printCars();
-        //FEV3 Customer can sort list based on the following: price, range per charge, horsepower.
-        dealership.filterCars();
-        dealership.sortListByPrice();
-        dealership.sortListByRangePerHour();
-        dealership.sortListByHP();
+        //Printing cars
+        List<Car> printCars = new ArrayList<>(dealership.printCars());
+        System.out.println(printCars);
 
+        //FilterList
+        List<Car> filteredList = new ArrayList<>(dealership.filterCars());
+        System.out.println(filteredList);
+
+        //Sort list
+        //By price
+        List<Car> sortedListByPrice = new ArrayList<>(dealership.getSortedListByPrice());
+        System.out.println(sortedListByPrice);
+
+        //By RangePerHour
+        List<Car> sortedListByRPH = new ArrayList<>(dealership.sortListByRangePerHour());
+        System.out.println(sortedListByRPH);
+
+        //By HorsePower
+        List<Car> sortedListByHP = new ArrayList<>(dealership.sortListByHP());
+        System.out.println(sortedListByHP);
+
+        //StoreCarsToCSV
+        CSVWriter csvWriter = new CSVWriter("carCSV.csv");
+        csvWriter.writeCars(printCars);
 
     }
+
 }

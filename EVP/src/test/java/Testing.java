@@ -23,7 +23,6 @@ public class Testing {
         arrayCars[1] = c3;
         Car[] expected = {c2, c3};
         assertArrayEquals(expected, arrayCars);
-
     }
 
     @Test
@@ -97,8 +96,6 @@ public class Testing {
             }
 
         }
-
-
     }
 
     @Test

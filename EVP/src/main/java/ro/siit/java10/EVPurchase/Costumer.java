@@ -1,14 +1,10 @@
 package ro.siit.java10.EVPurchase;
 
-public class Client {
+public class Costumer {
     private String name;
     private String surname;
 
-    public Client() {
-
-    }
-
-    public Client(String name, String surname) {
+    public Costumer(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
@@ -21,7 +17,7 @@ public class Client {
         this.name = name;
     }
 
-    public Client(String name) {
+    public Costumer(String name) {
         this.name = name;
     }
 

@@ -1,0 +1,10 @@
+Manufacturer, Model, Year, Price, HorsePower, Motor, Battery, Consumption, Type, FastCharging, RangeInKm, Stock
+Volkswagen, e-UP, 2018, 25000, 82, 20, 40, 17, New, No, 320, 3
+Volkswagen, e-Golf, 2018, 38000, 80, 23, 43, 19, New, Yes, 400, 5
+Renault, Zoe, 2018, 33000, 79, 21, 42, 20, New, Yes, 400, 10
+BMW, i3, 2018, 40000, 80, 25, 45, 21, New, No, 350, 3
+Smart, ForTwo, 2018, 22000, 77, 20, 40, 20, New, Yes, 200, 2
+Smart, ForFour, 2018, 22700, 86, 19, 35, 15, New, No, 260, 7
+Smart, ForTwo Cabrio, 2018, 23000, 81, 22, 40, 19, New, Yes, 300, 3
+Kia, Soul, 2018, 34000, 75, 20, 40, 17, New, Yes, 400, 10
+Hyundai, Ioniq, 2018, 40000, 83, 20, 45, 19, New, No, 370, 0
