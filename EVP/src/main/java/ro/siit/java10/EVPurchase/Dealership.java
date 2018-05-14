@@ -1,11 +1,11 @@
 package ro.siit.java10.EVPurchase;
-
 import java.util.*;
 
 public class Dealership {
     private String name;
     private Car car;
-    private List<Car> listOfCars = new ArrayList<Car>();
+    private final List<Car> listOfCars = new ArrayList<Car>();
+    private final ArrayList<Costumer> costumerList = new ArrayList<Costumer>();
 
 
     public Dealership(String name) {
@@ -16,20 +16,24 @@ public class Dealership {
         return name;
     }
 
+    public void registerCostumer(Costumer c) {
+        costumerList.add(c);
+    }
+
     public void addCar(Car a) {
         listOfCars.add(a);
         System.out.println("Car added.");
     }
 
-    public void filterCars() {
-
-        Iterator<Car> iterator = listOfCars.iterator();
+    public List<Car> filterCars() {
+        List<Car> filterList = new ArrayList<>(listOfCars);
+        Iterator<Car> iterator = filterList.iterator();
         while (iterator.hasNext()) {
             car = iterator.next();
-            System.out.println(listOfCars.indexOf(car));
+            System.out.println(filterList.indexOf(car));
             if (car.getStock() != 0) {
                 if (car.getFastCharging().equals("Yes")) {
-                    System.out.println(listOfCars.toString());
+                    System.out.println(filterList.toString());
                 } else {
                     System.out.println("Not fast charging");
                 }
@@ -38,39 +42,31 @@ public class Dealership {
             }
 
         }
+        return filterList;
     }
 
-    public void printCars() {
-        for (Car a : listOfCars) {
-            System.out.println(a.toString());
-        }
+    public List<Car> printCars() {
+        List<Car> printingCars = new ArrayList<Car>(listOfCars);
+        return printingCars;
+
     }
 
-    public void sortListByPrice() {
-        listOfCars.sort(new Comparator<Car>() {
-            public int compare(Car o1, Car o2) {
-                return ((Integer) o1.getPrice()).compareTo(o2.getPrice());
-            }
-        });
-        System.out.println(listOfCars);
+    public List<Car> getSortedListByPrice() {
+        List<Car> listPrice = new ArrayList<Car>(Collections.unmodifiableList(listOfCars));
+        listPrice.sort(Car.COMPARE_BY_PRICE);
+        return listPrice;
     }
 
-    public void sortListByRangePerHour() {
-        listOfCars.sort(new Comparator<Car>() {
-            public int compare(Car o1, Car o2) {
-                return ((Integer) o1.getRangePerChargeKM()).compareTo(o2.getRangePerChargeKM());
-            }
-        });
-        System.out.println(listOfCars);
+    public List<Car> sortListByRangePerHour() {
+        List<Car> listRPH = new ArrayList<Car>(Collections.unmodifiableList(listOfCars));
+        listRPH.sort(Car.COMPARE_BY_RANGE_PER_HOUR);
+        return listRPH;
     }
 
-    public void sortListByHP() {
-        listOfCars.sort(new Comparator<Car>() {
-            public int compare(Car o1, Car o2) {
-                return ((Integer) o1.getHorsePower()).compareTo(o2.getHorsePower());
-            }
-        });
-        System.out.println(listOfCars);
+    public List<Car> sortListByHP() {
+        List<Car> listHP = new ArrayList<Car>(Collections.unmodifiableList(listOfCars));
+        listHP.sort(Car.COMPARE_BY_HORSE_POWER);
+        return listHP;
     }
 }
 

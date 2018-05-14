@@ -1,4 +1,4 @@
 target
-.idea/
-*.xml
-*.iml
+.idea
+EVP.iml
+pom.xml
